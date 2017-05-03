@@ -1,14 +1,9 @@
 cmake_minimum_required(VERSION 2.8)
 project( $ENV{env_filename} )
 
-file(GLOB_RECURSE SOURCES
-	"include/*.h"
-	"src/*.cpp"
-)
-
 SET(CMAKE_CXX_FLAGS "-std=c++14")
 
-add_executable( ${PROJECT_NAME} ${PROJECT_NAME}.cpp ${SOURCES})
+add_executable( ${PROJECT_NAME} ${PROJECT_NAME}.cpp)
 
 
 # cmake_minimum_required(VERSION 2.8)

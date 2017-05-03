@@ -13,7 +13,7 @@
 
 const unsigned N_ROUNDS=        10;
 const unsigned TOTAL_PINS=      10;
-const unsigned MAX_ROLL_SCORE=  3*TOTAL_PINS;             // 3 ->  roll + prev. spare/strike + prev-prev strike
+const unsigned MAX_ROLL_SCORE=  3*TOTAL_PINS;             // 3 ->  roll + prev spare/strike + prev-prev strike
 const unsigned MAX_TOTAL_SCORE= N_ROUNDS*MAX_ROLL_SCORE;
 
 const int def_value=            -1;                       // To initialize int's
@@ -84,7 +84,7 @@ int main()
         {
           last_roll->score+= n_pins;
         }
-        else if(last_roll->frame == Frame::first_roll && (last_roll->score + n_pins) == TOTAL_PINS)  // after checking last wasn't a spare
+        else if(last_roll->frame == Frame::first_roll && (last_roll->score + n_pins) == TOTAL_PINS)  // after making sure last one wasn't a spare
         {
           instance.roll_type= Roll_type::spare;
         }
@@ -173,7 +173,7 @@ void assert_rolls(const std::vector<Roll>& v_rolls)
       }
       if(roll->roll_type == Roll_type::spare)
       {
-        assert( (roll->n_pins + prev_roll->n_pins) == TOTAL_PINS);
+        assert((roll->n_pins + prev_roll->n_pins) == TOTAL_PINS);
       }
     }
     else
